@@ -7,22 +7,11 @@ import io from "socket.io-client";
 import { useEffect } from "react";
 const { Content, Sider } = Layout;
 import "./Chat.css";
-const currentTime= new Date().toLocaleTimeString();
 
-const socket = io("http://localhost:8080/");
 const Chat = () => {
   const [incomingMessages, setIncomingMessages] = useState([]);
   const [messageSendingTime,setMessageSendingTime]=useState('');
   const [outgoingMessages, setOutgoingMessages] = useState("");
-
-  useEffect(() => {
-    socket.on("message", (message) => {
-      setIncomingMessages((prevMessage) => [...prevMessage, message]);
-    });
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
 
   const handleSendMessage = () => {
     setOutgoingMessages("");
@@ -136,6 +125,9 @@ const Chat = () => {
           }
           onChange={handleInputValue}
         />
+      </Content>
+      <Content>
+        <h1>Hello</h1>
       </Content>
     </Layout>
   );
