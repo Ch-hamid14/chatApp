@@ -1,0 +1,4 @@
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent; /* Optional: Set a background color to the hidden scrollbar area */
+}
